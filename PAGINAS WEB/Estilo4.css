@@ -1,0 +1,39 @@
+.card {
+    width: 18rem; /* Ajusta el ancho de las tarjetas */
+    margin-bottom: 20px; /* Añade espacio entre las tarjetas */
+}
+
+.card-header {
+    background-color: #343a40; /* Color de fondo del encabezado */
+    color: white; /* Color del texto */
+    padding: 10px; /* Padding del encabezado */
+}
+
+.card-title {
+    text-align: center; /* Centrar el texto del título */
+    margin: 0; /* Eliminar margen */
+}
+
+.card-text {
+    text-align: justify; /* Justificar el texto */
+    font-size: 0.9rem; /* Ajustar el tamaño del texto */
+}
+
+.cont {
+    display: flex;
+    justify-content: center; /* Centrar las tarjetas horizontalmente */
+}
+
+.row {
+    display: flex;
+    justify-content: center; /* Centrar las tarjetas horizontalmente */
+    flex-wrap: wrap; /* Permitir que las tarjetas se ajusten y no se desborden */
+}
+
+.col-4 {
+    flex: 0 0 30%; /* Permitir que cada tarjeta ocupe aproximadamente un tercio del contenedor */
+    max-width: 30%; /* Ajustar el ancho máximo */
+    display: flex;
+    justify-content: center; /* Centrar las tarjetas dentro de cada columna */
+    margin: 10px; /* Espacio entre columnas */
+}

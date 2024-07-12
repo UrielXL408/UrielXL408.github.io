@@ -1,0 +1,356 @@
+<?php
+include('PHP/Conexion.php'); // Incluye el archivo con la conexión
+
+$sqlArchivos = "SELECT IdImagen, Nombre, Ruta FROM imagen";
+$queryArchivos = mysqli_query($conexion, $sqlArchivos);
+
+// Verifica si la consulta se realizó con éxito
+if (!$queryArchivos) {
+    die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
+}
+
+// Obtiene el resultado de la consulta
+$rowArchivo = mysqli_fetch_assoc($queryArchivos);
+?>
+
+
+
+<?php
+// Establecer la conexión a la base de datos // Asegúrate de que tu función `conexion()` esté definida y funcione correctamente
+
+// Seleccionar el registro con ID desde la base de datos
+$sqlArchivos = "SELECT Ruta FROM imagen WHERE IdImagen = 1";
+$queryArchivos = mysqli_query($conexion, $sqlArchivos);
+
+// Verificar si la consulta se realizó con éxito
+if (!$queryArchivos) {
+    die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
+}
+
+// Obtener el resultado de la consulta
+$rowArchivo = mysqli_fetch_assoc($queryArchivos);
+
+// Generar la ruta de la imagen
+$faviconUrl = str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaviArt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="icon" href="<?php echo $faviconUrl; ?>" type="image/jpeg">
+    <link rel="stylesheet" href="CSS/Estilo.css">
+</head>
+<body>
+  <br><br>
+    <header class="b1">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="Index.php">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" data-bs-auto-close="outside" href="#" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Galeria de Retratos
+              </a>
+              <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="PAGINAS WEB/Retratos al Acrilico.php">Retratos al Acrilico</a></li>
+                  <li><a class="dropdown-item" href="#">Retratos al Estilo de Acuarela</a></li>
+                  <li><a class="dropdown-item" href="#">Retratos a Grafito</a></li>
+                  <li><a class="dropdown-item" href="#">Retratos con Fondo y sin Fondo</a></li>
+              </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" data-bs-auto-close="outside" href="#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Galeria de Vestidos Pintados
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="PAGINAS WEB/Vestidos de Manta.php">De Manta</a></li>
+                <li><a class="dropdown-item" href="#">De Algodon</a></li>
+                <li><a class="dropdown-item" href="#">De Lino</a></li>
+            </ul>
+        </li>
+            
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" data-bs-auto-close="outside" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Galeria de Cuadros Pintados
+          </a>
+          <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="PAGINAS WEB/Cuadros de Arte Clasico.php">Arte Clasico</a></li>
+              <li><a class="dropdown-item" href="#">Arte Moderno</a></li>
+              <li><a class="dropdown-item" href="#">Arte Abstracto</a></li>
+              <li><a class="dropdown-item" href="#">Arte en Paisajes</a></li>
+              <li><a class="dropdown-item" href="#">Arte en Animales</a></li>
+          </ul>
+      </li>
+
+            <a href="#popup6" class="cs2"> <div class="cir">
+            <?php
+                    // Seleccionamos el registro con ID desde la base de datos
+                    $sqlArchivos = "SELECT Ruta FROM imagen WHERE IdImagen = 6";
+                    $queryArchivos = mysqli_query($conexion, $sqlArchivos);
+
+                    // Verificar si la consulta se realizó con éxito
+                    if (!$queryArchivos) {
+                        die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
+                    }
+
+                    // Obtener el resultado de la consulta
+                    $rowArchivo = mysqli_fetch_assoc($queryArchivos);
+
+                    // Mostrar la imagen
+                    echo '<img class="img-fluid" src="' . str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']) . '" alt="Imagen">';
+                    ?>
+          </div></a>
+        </ul>
+
+        <div id="popup7" class="popup">
+            <p><iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4522.808121454825!2d-99.17463804368886!3d17.592611077757493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDM1JzM0LjYiTiA5OcKwMTAnMjkuNyJX!5e0!3m2!1ses-419!2smx!4v1718288315944!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+            <a href="#" class="close-btn">Cerrar</a>
+    </div>
+
+        <div id="popup6" class="popup">
+            <p>Gracias por tu eleccion</p>
+            <p>Por favor registrate primero para realizar su compra. Si ya esta registrado inicie sesion</p>
+            <div class="cont">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="l1">
+                            <form name="nuevo" action="PHP/CrearUsuario.php" method="post" enctype="multipart/form-data">
+                                <fieldset class="s4">
+                                    <legend>Registrarse</legend>
+                                    <div class="mb-3">
+                                        <label for="usu" class="form-label">Ingrese su usuario</label>
+                                        <input type="text" class="form-control" id="usu" name="usuario" placeholder="usuario" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="nom" class="form-label">Ingrese su nombre</label>
+                                        <input type="text" class="form-control" id="nom" name="nombre" placeholder="nombre" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="pa" class="form-label">Ingrese su apellido paterno</label>
+                                        <input type="text" class="form-control" id="pa" name="apellidop" placeholder="apellido paterno" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="ma" class="form-label">Ingrese su apellido materno</label>
+                                        <input type="text" class="form-control" id="ma" name="apellidom" placeholder="apellido materno" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="telefono" class="form-label">Ingrese su numero de telefono</label>
+                                        <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="numero de telefono" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="correo" class="form-label">Ingrese su correo electronico</label>
+                                        <input type="email" class="form-control" id="correo" name="correo" placeholder="correo electronico" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="mu" class="form-label">Ingrese su municipio</label>
+                                      <input type="text" class="form-control" id="mu" name="municipio" placeholder="municipio" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="est" class="form-label">Ingrese su estado</label>
+                                    <input type="text" class="form-control" id="est" name="estado" placeholder="estado" required>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="col" class="form-label">Ingrese su colonia</label>
+                                  <input type="text" class="form-control" id="col" name="colonia" placeholder="colonia" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="call" class="form-label">Ingrese su calle</label>
+                                <input type="text" class="form-control" id="call" name="calle" placeholder="calle" required>
+                            </div>
+                            <div class="mb-3">
+                              <label for="nca" class="form-label">Ingrese su numero de calle</label>
+                              <input type="text" class="form-control" id="nca" name="ncalle" placeholder="numero de calle" required>
+                          </div>
+                                    <div class="mb-3">
+                                        <label for="pass" class="form-label">Ingrese su contraseña</label>
+                                        <input type="password" class="form-control" id="pass" name="contraseña" maxlength="10" autocomplete="new-password" placeholder="Contraseña" required>
+                                    </div>
+                                    <div class="text-center">
+                                      <input type="submit" class="btn-custom-primary" value="Registrarse">
+                                      <input type="reset" class="btn-custom-secondary" value="Borrar">
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="l2">
+                            <form name="ini" action="PHP/Inicio.php" method="post" enctype="multipart/form-data">
+                                <fieldset class="s5">
+                                    <legend>Iniciar sesion</legend>
+                                    <div class="mb-3">
+                                        <label for="usu" class="form-label">Ingrese su usuario</label>
+                                        <input type="text" class="form-control" id="usu" name="usuario" placeholder="usuario" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="pass" class="form-label">Ingrese su contraseña</label>
+                                        <input type="password" class="form-control" id="pass" name="contraseña" maxlength="10" autocomplete="new-password" placeholder="Contraseña" required>
+                                    </div>
+                                    <div class="text-center">
+                                      <input type="submit" class="btn btn-custom-3" value="Iniciar sesión">
+                                  </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </header>
+    <br><br><br><br><br><br><br>
+    <section class="v1">
+        <p>JaviArt</p>
+    </section>
+    <section class="v11">
+      <p id="explosion-text" onclick="this.classList.add('explode')">I can't remember to forget you</p>
+    </section>
+    
+
+    <section class="v4">
+      <br><br><br><br><br><br><br><br><br>
+
+        
+
+
+   </div>
+</div>
+   </section>
+   <br><br>
+
+
+    
+
+
+   <footer class="v5">
+    <div class="cont">
+        <div class="row">
+        <div class="col-3 footer-col">
+            <div class="v51">
+
+            <div class="cir">
+            <?php
+                    // Seleccionamos el registro con ID desde la base de datos
+                    $sqlArchivos = "SELECT Ruta FROM imagen WHERE IdImagen = 1";
+                    $queryArchivos = mysqli_query($conexion, $sqlArchivos);
+
+                    // Verificar si la consulta se realizó con éxito
+                    if (!$queryArchivos) {
+                        die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
+                    }
+
+                    // Obtener el resultado de la consulta
+                    $rowArchivo = mysqli_fetch_assoc($queryArchivos);
+
+                    // Mostrar la imagen
+                    echo '<img class="img-fluid" src="' . str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']) . '" alt="Imagen">';
+                    ?>
+            </div>
+        
+</div>
+
+            </div>
+            <div class="col-3 footer-col">
+                <h4 class="text-center my-1">Contáctanos</h4>
+                <p>Email: fsilveriocuesta@gmail.com</p><br>
+                <p>Tel. 7561192376</p>
+            </div>
+            <div class="col-3 footer-col">
+                <h4 class="text-center my-1">Conocenos</h4>
+                <br>
+                <div class="t1">
+                <a href="PAGINAS WEB/Nosotros.php" class="cs4"> <div class="cir">
+                <?php
+                    // Seleccionamos el registro con ID desde la base de datos
+                    $sqlArchivos = "SELECT Ruta FROM imagen WHERE IdImagen = 4";
+                    $queryArchivos = mysqli_query($conexion, $sqlArchivos);
+
+                    // Verificar si la consulta se realizó con éxito
+                    if (!$queryArchivos) {
+                        die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
+                    }
+
+                    // Obtener el resultado de la consulta
+                    $rowArchivo = mysqli_fetch_assoc($queryArchivos);
+
+                    // Mostrar la imagen
+                    echo '<img class="img-fluid" src="' . str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']) . '" alt="Imagen">';
+                    ?>
+                </div><p>Nosotros</p></a>
+
+                <a href="ejemplo.html" class="cs4"> <div class="cir">
+                <?php
+                    // Seleccionamos el registro con ID desde la base de datos
+                    $sqlArchivos = "SELECT Ruta FROM imagen WHERE IdImagen = 5";
+                    $queryArchivos = mysqli_query($conexion, $sqlArchivos);
+
+                    // Verificar si la consulta se realizó con éxito
+                    if (!$queryArchivos) {
+                        die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
+                    }
+
+                    // Obtener el resultado de la consulta
+                    $rowArchivo = mysqli_fetch_assoc($queryArchivos);
+
+                    // Mostrar la imagen
+                    echo '<img class="img-fluid" src="' . str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']) . '" alt="Imagen">';
+                    ?>
+                </div><p>Vision</p></a>
+                
+
+
+
+
+                </div>
+            </div>
+            <div class="col-3 footer-col">
+                <div class="text-center">
+                <h4 class="text-center my-1">Ubicacion</h4>
+                    <a href="#popup7" class="btn btn-primary">
+                    <?php
+                    // Seleccionamos el registro con ID desde la base de datos
+                    $sqlArchivos = "SELECT Ruta FROM imagen WHERE IdImagen = 7";
+                    $queryArchivos = mysqli_query($conexion, $sqlArchivos);
+
+                    // Verificar si la consulta se realizó con éxito
+                    if (!$queryArchivos) {
+                        die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
+                    }
+
+                    // Obtener el resultado de la consulta
+                    $rowArchivo = mysqli_fetch_assoc($queryArchivos);
+
+                    // Mostrar la imagen
+                    echo '<img class="img-fluid" src="' . str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']) . '" alt="Imagen">';
+                    ?>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="hr1">
+        <p>© 2024 JaviArt. Derechos reservados | Privacy Policy</p>
+        
+    </div>
+    <div class="hr2">
+    <a href="Paginas Web/Admin.html" class="btn btn-primary">Administracion</a>
+    </div>
+</footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+        
+</body>
+</html>

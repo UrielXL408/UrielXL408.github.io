@@ -1,0 +1,51 @@
+<?php
+// Supongamos que tienes la conexión a la base de datos establecida y el queryArchivos correctamente definido
+
+// Seleccionamos el registro con ID 2 desde la base de datos
+$sqlArchivos = "SELECT IdImagen, Nombre, Ruta FROM imagen WHERE IdImagen = 4";
+$queryArchivos = mysqli_query($conexion, $sqlArchivos);
+
+// Verificar si la consulta se realizó con éxito
+if (!$queryArchivos) {
+    die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
+}
+
+// Obtener el resultado de la consulta
+$rowArchivo = mysqli_fetch_assoc($queryArchivos);
+?>
+
+<!-- Generación del enlace con ID 2 -->
+<a href="PHP/Mostrar.php?id=<?= $rowArchivo['IdImagen'] ?>" class="cs1">
+    <a href="https://www.facebook.com/se.uarm"><div class="cir">
+        <img src="<?= str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']) ?>" alt="<?= $rowArchivo['Nombre'] ?>">
+    </div>
+    <p><?= $rowArchivo['Nombre'] ?></p></a>
+</a>
+
+
+<?php
+// Supongamos que tienes la conexión a la base de datos establecida y el queryArchivos correctamente definido
+
+// Seleccionamos el registro con ID 2 desde la base de datos
+$sqlArchivos = "SELECT IdImagen, Nombre, Ruta FROM imagen WHERE IdImagen = 2";
+$queryArchivos = mysqli_query($conexion, $sqlArchivos);
+
+// Verificar si la consulta se realizó con éxito
+if (!$queryArchivos) {
+    die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
+}
+
+// Obtener el resultado de la consulta
+$rowArchivo = mysqli_fetch_assoc($queryArchivos);
+?>
+
+<!-- Generación del enlace con ID 2 -->
+<a href="PHP/Mostrar.php?id=<?= $rowArchivo['IdImagen'] ?>" class="cs1">
+    <div class="cir">
+        <img src="<?= str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']) ?>" alt="<?= $rowArchivo['Nombre'] ?>">
+    </div>
+    <p><?= $rowArchivo['Nombre'] ?></p>
+</a>
+
+
+<img src="../PHP/acrilicos/file_668605dd84a318.60594308.jpg" class="img-fluid rounded-start" alt="borja">

@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.b1 {
+    background-color: black;
+    width: 100%;
+    height: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(0, 0, 0);
+    transition: background-color 0.3s;
+    z-index: 1000;
+    position: fixed;
+    color: white;
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-link {
+    position: absolute;
+    left: 10px; /* Ajusta este valor según necesites */
+}
+
+.nav-text {
+    color: white;
+    margin: 0 20px;
+    font-size: 17px;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+.btn-custom {
+    background-color: #018e01;
+    color: white;
+    border: none;
+    padding: 4px 5px;
+    text-decoration: none;
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 20px;
+}
+.btn-custom:hover {
+    background-color: #3bcea9;
+    color: rgb(0, 0, 0);
+}
+
+.v2 {
+    width: 80%;
+    min-height: calc(100vh - 110px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+}
+
+.v2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(135deg, rgba(164, 208, 222, 0.801), rgba(19, 76, 231, 0.395));
+    background-size: 200% 200%;
+    filter: blur(5px) brightness(1.2);
+    animation: wave 10s infinite linear;
+    pointer-events: none; /* Asegúrate de que el pseudoelemento no interfiera con otros elementos */
+}
+
+.v2 > * {
+    position: relative;
+    z-index: 1; /* Asegura que el contenido esté encima del efecto */
+}
+
+@keyframes wave {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.v2 p {
+    z-index: 1;
+    color: black !important;
+    font-weight: 800;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: justify;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 250px;
+    height: auto;
+    max-width: 250px;
+    object-fit: cover;
+}
+
+.col-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.v21 p{
+    text-align: justify;
+}

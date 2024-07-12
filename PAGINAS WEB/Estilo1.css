@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(240, 240, 226) !important;
+    margin: 0;
+    padding: 0;
+}
+header{
+    background-color:rgb(199, 199, 176);
+}
+.vr2{
+    background-color: rgb(240, 240, 226) !important;
+}
+.b1 {
+    background-color: black;
+    width: 100%;
+    height: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(0, 0, 0);
+    transition: background-color 0.3s;
+    z-index: 1000;
+    position: fixed;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-link, .nav-text {
+    color: white;
+    margin: 0 20px;
+    font-size: 17px;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: blue;
+    background-color: aquamarine;
+}
+
+
+.v3 {
+    background-color: rgb(240, 240, 226) !important;
+    display: flex;
+    flex-wrap: wrap; /* Permite que las cards se ajusten en múltiples líneas si es necesario */
+    justify-content: center; /* Centra las cards horizontalmente */
+    margin-top: 100px; /* Espacio superior para evitar que el contenido se solape con el header fijo */
+    gap: 20px; /* Espacio entre las cards */
+    padding: 20px;
+}
+
+/* Estilo de las cards individuales */
+.card {
+    width: calc(33.33% - 40px); /* Tres cards por fila con espacio entre ellas */
+    margin-bottom: 20px;
+    box-shadow: 0 15px 27px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    background: linear-gradient(to bottom, #e6e6e6, #c2c2c2, #858585);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img, .card embed {
+    width: 100%;
+    height: 250px;
+    display: block;
+}
+
+.card-body {
+    padding: 15px;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center;
+}
+
+.card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.card-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: blue;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.btn-primary:hover {
+    background-color: rgb(44, 121, 235);
+    color: rgb(1, 90, 60);
+}
+
+
+
+.card .details {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.card.expanded .details {
+    display: block;
+    opacity: 1;
+}
+.card.expanded {
+    background-color: lightblue;
+}
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 10000;
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9); 
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+.modal-content, #caption { 
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
