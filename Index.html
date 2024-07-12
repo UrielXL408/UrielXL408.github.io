@@ -1,38 +1,3 @@
-<?php
-include('PHP/Conexion.php'); // Incluye el archivo con la conexión
-
-$sqlArchivos = "SELECT IdImagen, Nombre, Ruta FROM imagen";
-$queryArchivos = mysqli_query($conexion, $sqlArchivos);
-
-// Verifica si la consulta se realizó con éxito
-if (!$queryArchivos) {
-    die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
-}
-
-// Obtiene el resultado de la consulta
-$rowArchivo = mysqli_fetch_assoc($queryArchivos);
-?>
-
-
-
-<?php
-// Establecer la conexión a la base de datos // Asegúrate de que tu función `conexion()` esté definida y funcione correctamente
-
-// Seleccionar el registro con ID desde la base de datos
-$sqlArchivos = "SELECT Ruta FROM imagen WHERE IdImagen = 1";
-$queryArchivos = mysqli_query($conexion, $sqlArchivos);
-
-// Verificar si la consulta se realizó con éxito
-if (!$queryArchivos) {
-    die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
-}
-
-// Obtener el resultado de la consulta
-$rowArchivo = mysqli_fetch_assoc($queryArchivos);
-
-// Generar la ruta de la imagen
-$faviconUrl = str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']);
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +7,7 @@ $faviconUrl = str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']);
     <title>JaviArt</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="icon" href="<?php echo $faviconUrl; ?>" type="image/jpeg">
+        
     <link rel="stylesheet" href="CSS/Estilo.css">
 </head>
 <body>
@@ -92,22 +57,7 @@ $faviconUrl = str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']);
       </li>
 
             <a href="#popup6" class="cs2"> <div class="cir">
-            <?php
-                    // Seleccionamos el registro con ID desde la base de datos
-                    $sqlArchivos = "SELECT Ruta FROM imagen WHERE IdImagen = 6";
-                    $queryArchivos = mysqli_query($conexion, $sqlArchivos);
-
-                    // Verificar si la consulta se realizó con éxito
-                    if (!$queryArchivos) {
-                        die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
-                    }
-
-                    // Obtener el resultado de la consulta
-                    $rowArchivo = mysqli_fetch_assoc($queryArchivos);
-
-                    // Mostrar la imagen
-                    echo '<img class="img-fluid" src="' . str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']) . '" alt="Imagen">';
-                    ?>
+            
           </div></a>
         </ul>
 
@@ -238,22 +188,7 @@ $faviconUrl = str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']);
             <div class="v51">
 
             <div class="cir">
-            <?php
-                    // Seleccionamos el registro con ID desde la base de datos
-                    $sqlArchivos = "SELECT Ruta FROM imagen WHERE IdImagen = 1";
-                    $queryArchivos = mysqli_query($conexion, $sqlArchivos);
-
-                    // Verificar si la consulta se realizó con éxito
-                    if (!$queryArchivos) {
-                        die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
-                    }
-
-                    // Obtener el resultado de la consulta
-                    $rowArchivo = mysqli_fetch_assoc($queryArchivos);
-
-                    // Mostrar la imagen
-                    echo '<img class="img-fluid" src="' . str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']) . '" alt="Imagen">';
-                    ?>
+            
             </div>
         
 </div>
@@ -269,41 +204,11 @@ $faviconUrl = str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']);
                 <br>
                 <div class="t1">
                 <a href="PAGINAS WEB/Nosotros.php" class="cs4"> <div class="cir">
-                <?php
-                    // Seleccionamos el registro con ID desde la base de datos
-                    $sqlArchivos = "SELECT Ruta FROM imagen WHERE IdImagen = 4";
-                    $queryArchivos = mysqli_query($conexion, $sqlArchivos);
-
-                    // Verificar si la consulta se realizó con éxito
-                    if (!$queryArchivos) {
-                        die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
-                    }
-
-                    // Obtener el resultado de la consulta
-                    $rowArchivo = mysqli_fetch_assoc($queryArchivos);
-
-                    // Mostrar la imagen
-                    echo '<img class="img-fluid" src="' . str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']) . '" alt="Imagen">';
-                    ?>
+                
                 </div><p>Nosotros</p></a>
 
                 <a href="ejemplo.html" class="cs4"> <div class="cir">
-                <?php
-                    // Seleccionamos el registro con ID desde la base de datos
-                    $sqlArchivos = "SELECT Ruta FROM imagen WHERE IdImagen = 5";
-                    $queryArchivos = mysqli_query($conexion, $sqlArchivos);
-
-                    // Verificar si la consulta se realizó con éxito
-                    if (!$queryArchivos) {
-                        die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
-                    }
-
-                    // Obtener el resultado de la consulta
-                    $rowArchivo = mysqli_fetch_assoc($queryArchivos);
-
-                    // Mostrar la imagen
-                    echo '<img class="img-fluid" src="' . str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']) . '" alt="Imagen">';
-                    ?>
+                
                 </div><p>Vision</p></a>
                 
 
@@ -316,22 +221,7 @@ $faviconUrl = str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']);
                 <div class="text-center">
                 <h4 class="text-center my-1">Ubicacion</h4>
                     <a href="#popup7" class="btn btn-primary">
-                    <?php
-                    // Seleccionamos el registro con ID desde la base de datos
-                    $sqlArchivos = "SELECT Ruta FROM imagen WHERE IdImagen = 7";
-                    $queryArchivos = mysqli_query($conexion, $sqlArchivos);
-
-                    // Verificar si la consulta se realizó con éxito
-                    if (!$queryArchivos) {
-                        die('Error al ejecutar la consulta: ' . mysqli_error($conexion));
-                    }
-
-                    // Obtener el resultado de la consulta
-                    $rowArchivo = mysqli_fetch_assoc($queryArchivos);
-
-                    // Mostrar la imagen
-                    echo '<img class="img-fluid" src="' . str_replace('C:/xampp/htdocs/', '/', $rowArchivo['Ruta']) . '" alt="Imagen">';
-                    ?>
+                    
                     </a>
                 </div>
             </div>
